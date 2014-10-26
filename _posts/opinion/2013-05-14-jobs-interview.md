@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 史蒂夫·乔布斯：遗失的访谈
+title: 史蒂夫
 category: opinion
 description: 多年前乔布斯的一次访谈，最近才被重新找出来，可以仔细看看
 ---
