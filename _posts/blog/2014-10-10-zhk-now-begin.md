@@ -351,6 +351,9 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 至此，一个完整的环境搭建就完成了，推荐试用[DigitalOcean][DO]的VPS看看，用我的[Refer][DO]注册立刻可以得到$10的Credit赠送。
 
 
+##多线程下的单例模式
+
+
 [DO]: https://www.digitalocean.com/?refcode=f95f7297ed94 "DigitalOcean"
 [VE]: http://www.virtualenv.org/en/latest/ "Virtualenv"
 [Flask]: http://flask.pocoo.org/docs/ "Flask"
