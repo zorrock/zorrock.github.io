@@ -222,7 +222,7 @@ VIM的基本操作，可以挖掘的东西非常多，不仅仅需要记忆，�
 因为配置不断在更新，所以放上我的配置的链接：[.vimrc配置][vimrc]
 
 ##更多
-本人编程环境为windows，部分配置不相同，未安装Bundle插件,配置方案设置为torte（colorscheme torte），字体设置为Consolas（set guifont=Consolas:h10）
+本人编程环境为windows，部分配置不相同，未安装Bundle插件,配置方案设置为torte（colorscheme torte），字体设置为Consolas（set guifont=Consolas:h10）以及注释掉关闭菜单和工具的配置，另外给Eclipse颜色设置为黑色风格(在help-->eclispe Marketplace下安装eclispe color theme插件)
 
 关于VIM的使用，这篇博客仅仅介绍了很小的一部分，网络上还有大量朋友总结的心得，常学常有收获：
 
