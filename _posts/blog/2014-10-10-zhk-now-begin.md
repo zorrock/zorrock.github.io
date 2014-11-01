@@ -5,26 +5,21 @@ description: 工欲善其事必先利其器。关键字：Vim, Sublime Text2, No
 category: blog
 ---
 
-曾经有个叫兽说游戏的本质是打怪升级换装备，其实人生又何尝不是如此呢？
+世事如棋局常新，人生如戏
+曾经有人说游戏的本质是打怪升级换装备，其实人生又何尝不是如此呢？
 
-<ul>
-  <li><a href="https://zorrock.disqus.com/admin/settings/universalcode/" target="_blank" class="external">disqus添加到你的博客</a></li>
-  <li><a href="https://zorrock.disqus.com/admin/settings/universalcode/" target="_blank" class="external">流量统计系统</a></li>
-  <li><a href="http://www.linezing.com/login2.php" target="_blank" class="external">IP来源分析</a></li>
-  <li><a href="http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139" target="_blank" class="external">淘宝IP地址库</a></li>
-  <li><a href="http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139" target="_blank" class="external">并行逻辑回归</a></li>
-  <li><a href="http://xuanpai.sinaapp.com/fuzhus" target="_blank" class="external">网络小说辅助设定</a></li>
-</ul>
 
-我们目标实现一个支持多个独立域名网站的线上Python环境，这会用到[Virtualenv][SV]，[Nginx][Nginx]。
+
+我们目标实现一个支持多个独立域名网站的线上Python环境，这会用到[NovelAssistant][NovelAssistant]。
 
 ##为每个APP创建Virtualenv
 
-[Virtualenv][VE]可以为每个Python应用创建独立的开发环境，使他们互不影响，Virtualenv能够做到：
+[NovelAssistant][NovelAssistant]可以为帮助那些闲的蛋痛的盆友动手写小说，譬如：
 <ul>
-  <li>在没有权限的情况下安装新套件</li>
-  <li>不同应用可以使用不同的套件版本</li>
-  <li>套件升级不影响其他应用</li>
+  <li>动作语言描写</li>
+  <li>情节辅助设定</li>
+  <li>人物活动背景设定</li>
+  <li>等等</li>
 </ul>
 
 ##安装Flask
@@ -200,11 +195,17 @@ category: blog
 将对象的引用保存到一个由锁保护的域中。
 
 
-
-
-
-
+##几个链接而已
+<ul>
+  <li><a href="https://zorrock.disqus.com/admin/settings/universalcode/" target="_blank" class="external">disqus添加到你的博客</a></li>
+  <li><a href="https://zorrock.disqus.com/admin/settings/universalcode/" target="_blank" class="external">流量统计系统</a></li>
+  <li><a href="http://www.linezing.com/login2.php" target="_blank" class="external">IP来源分析</a></li>
+  <li><a href="http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139" target="_blank" class="external">淘宝IP地址库</a></li>
+  <li><a href="http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139" target="_blank" class="external">并行逻辑回归</a></li>
+  <li><a href="http://xuanpai.sinaapp.com/fuzhus" target="_blank" class="external">网络小说辅助设定</a></li>
+</ul>
 
 
 [SV]: http://supervisord.org/ "Supervisor"
 [Nginx]: http://nginx.com/ "Nginx"
+[NovelAssistant]: http://xuanpai.sinaapp.com/fuzhus/ "novel"
