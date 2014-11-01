@@ -409,7 +409,8 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 
 	
 ###线程封闭
-只在单线程内访问数据部共享数据叫线程封闭。常见的两种技术应用为为Swing和JDBC。其中JDBC不要求Connection对象线程安全，对servlet而言，都是由单个线程采用同步的方式来处理，并且在Connection对象返回前，连接池不再将其分配给其他线程，这种连接管理模式在处理请求时隐含地将Connection对象封闭于线程中。
+只在单线程内访问数据部共享数据叫线程封闭。常见的两种技术为Swing和JDBC。其中JDBC不要求Connection对象线程安全，对servlet而言，都是由单个线程采用同步的方式来处理，并且在Connection对象返回前，连接池不再将其分配给其他线程，这种连接管理模式在处理请求时隐含地将Connection对象封闭于线程中。
+
 * Ad-hoc线程封闭 比较脆弱，尽量少用。
 * 栈封闭
 
@@ -449,7 +450,7 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 ##不变性
 不可变对象一定是线程安全的。
 
-	@Immutalbe
+	@Immutable
 	public final class ThreeStooges {
 		private final Set<String> stooges = new HashSet<String>();
 		
@@ -467,6 +468,7 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 * Final域 如“除非需要更高的可见性，否则应该将所有的域声明为私有域。”，除非需要某个域是可变的，否则应将其声明为final域。
 
 * 使用Volatile类型来发布不可变对象
+
 
 	@Immutable
 	class OneValueCache {
@@ -490,6 +492,7 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 		}
 	}
 	
+	
 	@ThreadSafe
 	public class VolatileCachedFactorizer implements Servlet {
 		private volatile OneValueCache cache = 
@@ -504,7 +507,6 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 			}
 			encodeIntoResponse(resp, factors);			
 		}
-		
 	}
 
 ##安全发布
