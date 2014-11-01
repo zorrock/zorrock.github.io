@@ -14,13 +14,7 @@ category: blog
 
 ##为每个APP创建Virtualenv
 
-[NovelAssistant][NovelAssistant]可以为帮助那些闲的蛋痛的盆友动手写小说，譬如：
-<ul>
-  <li>动作语言描写</li>
-  <li>情节辅助设定</li>
-  <li>人物活动背景设定</li>
-  <li>等等</li>
-</ul>
+
 
 ##安装Flask
 
@@ -184,7 +178,46 @@ category: blog
 			}
 			encodeIntoResponse(resp, factors);			
 		}
-	}
+	}	
+
+
+    Q@Q@QQQRZRRRRRMRRRMMMRMMDRDDDM0DDM0ZZMMRMMDRERRRRQMMMQRMQQMRRQRZ0
+    @QQQ@QQMRQRMRRRMRRRMRMMMMEE0ESXSDPpbMZMDDXDDDMRMMRE9bDMMRMZZRMQEb
+    Q@QQQ@RRRRMQQQRQRRRRMRMMbZD021h9XP0MDpSbFFDDMMZP99YXfEZRMDERMMRM9
+    @QQR@RQRMMQQRDMMRMRRRZDEZMPj2hp0DMR0FYShfhDEMbhY2rJfhDMZMDRMRDQE0
+    Q@R@QQRREQQMpPZRMZMQZ0bMDfL2F0MQRDtY71FJtZDP1Y7jr7YtPXEMMRRRRMMDp
+    MQQQ@RQZMZRpF9MDRMMPpXMpJYp0Q@RPj77rtP2SDF2c7:Urr7ftj2bZQRRRRZMDb
+    b@QQQRM00ZE2Uh0RMRtP9MS2XE9RMSLri7rUpFPXtci:.j7:rfj7jJFMRRMQMRME0
+    ER@Q@RMX0EFLYLRMQfUDRFtf2jph7.iiiiU1JJYLi.::Y7:iYY7LL7tpMZQRRMM9E
+    pMQ@QQD090c77j0PbLM0jYc7rYi..::::Jj777r:..:ci..iYririLtSDRQ@RRDb0
+    99QQ@Q0bb17YYtYDtFY:i:::.,,,..:ic7iiri:::.i.,.:7::ii721jbRQRQMb9E
+    pPD@Q@fpE22pF1hEJr:::.......:i7Y7ii:,.,,,,,.:rt2YJjJjYcU1@RQRZP09
+    9S0MQQFjhU1JL7hSttSXb9Xtj77i::i7r::::.::ii7J111f1JfhY7jrtRQQMX990
+    PpS0b@P7LYcLrrcYYJYttXSXXFUjr7rY77USSbbZD02Yriii:r77r7rrYQR@0Pp09
+    9XPFPQZr77JtXX177Xh2077r7YjL7rrir7cYUjjtJjpYfh7Uhjj7riiiYM@RpS990
+    PPXXFMZ777L1X0Ui.S@@P:cUrLc7::..,.:r77JU.iQ@Qh.tShjr:iiiLRQbX9pbp
+    XhXFXXMc7r777LYr:.i:.::iii7rr., .:::ii7ri,.r:,:i7ri:::iiYRZXpX990
+    bb09Xpbj77riir77iiirr7ri:irri:...::::::rrr:..::i:::::iii1RXpp9pb9
+    @@@D9pE27ri:::::iirrri::iirri..,::i:::::iiii:::::...i:irQbPX9Pb9b
+    R@QZp9PZLrii:::::iii:::irrr7:.,..::::::::iiri:::...::i:fDXSXXpP0p
+    RR@D9XPZ9rrii::::::.:::r777i:..,.:::i:::...::::::.::::rbMh0bD09Pp
+    MQQMP9SDQ2ii:i::.....::rcYri..,..:::ir::..,....:.::::it@RZZMZMDMZ
+    RRQDPXX9@QYii:i::::::::7j7r:.,, ,.::irr::...:.:.::::irb@QRRMRMQQ@
+    MQQMSPh9R@M7irii::::.::77i::..,  ,.:.:r:::...::::i::iLRQMRRRRQRQR
+    RRQR9FhXRQ@Firrii::.::::r7jYr:...:ii:::,:....:::i:iiiF@MMZMZMZRZM
+    ZQRRbphPR@@@ciirri::::.:.icfjYrrircjr.,.....::::::::rQRMDZEZDMDDE
+    MRRQ@Q@Q@QQQRriii:i::::.::iii:::..:........:::::::::PRQMMMMZRMMZR
+    ZQR@Q@Q@QRMQQMriirii:ir77rir.,.....::ii:::...::::..1RDMZDMDZDMRR@
+    MRQRQQR1hh9R@QQ7rr7rL7Y7rrri:,..,,:...:irir::.::::XQRMQDE0bbEbEE@
+    MRRRMRDPXDR@R@RP7rrrrLJUjfU121i:rUffYYYYcYr:::::iUMMR@Q@QR@@Q@@@Q
+    QQ@Q@Q@@QZb2Uc77Uc7ii::r2JY7cYftU777cjY:::::i:rrJYircUER@Q@Q@Q@Q@
+    Q@Q@QMStLr:i:i:7jj7Lrr:i7jYr.:::..:r77::.:::i7r77L......:7jX0RR@@
+    DPU7i.........i7UL7L7irirrYYUJjJjYjc7:iiiii:7iiir7:,,,,,,,,,.:cUX
+    .,,,,,,.,.,..::YY7r777iiii:::i:i:i::::::::i7i::::7i.,, , ,,,,,,,,
+    ,,,,,,,,.,..::i7Lrrirr7rr::......,,,..::irr::::.:i7.,     ,   , ,
+    ,,,.,.,.,....:i7rriii:r777ii::......:iirii::::...ii:..,,,,,, , , 
+    ............::irr:::::::ir77crrirr777ir::::::.....:::......,.,,,.
+    i:..,.,.,....:iii::::::::::r777c77ri::::.:.:.......:.........::ii
 
 ##安全发布
 任何线程都可以在不需要额外同步的情况下安全地访问不可变对象，即使在发布这些对象时没有使用同步。
@@ -205,7 +238,15 @@ category: blog
   <li><a href="http://xuanpai.sinaapp.com/fuzhus" target="_blank" class="external">网络小说辅助设定</a></li>
 </ul>
 
+[NovelAssistant][NovelAssistant]可以为帮助那些闲的蛋痛的盆友动手写小说，譬如：
+<ul>
+  <li>动作语言描写</li>
+  <li>情节辅助设定</li>
+  <li>人物活动背景设定</li>
+  <li>等等</li>
+</ul>
+
 
 [SV]: http://supervisord.org/ "Supervisor"
 [Nginx]: http://nginx.com/ "Nginx"
-[NovelAssistant]: http://xuanpai.sinaapp.com/fuzhus/ "novel"
+[NovelAssistant]: http://xuanpai.sinaapp.com/ "novel"
