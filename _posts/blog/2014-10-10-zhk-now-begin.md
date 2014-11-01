@@ -5,18 +5,9 @@ description: 工欲善其事必先利其器。关键字：Vim, Sublime Text2, No
 category: blog
 ---
 
-世事如棋局常新，人生如戏
-曾经有人说游戏的本质是打怪升级换装备，其实人生又何尝不是如此呢？
+世事如棋局常新，人生如戏靠演技。曾经有人说游戏的本质是打怪升级换装备，其实人生又何尝不是如此呢？
 
-
-
-我们目标实现一个支持多个独立域名网站的线上Python环境，这会用到[NovelAssistant][NovelAssistant]。
-
-##为每个APP创建Virtualenv
-
-
-
-##安装Flask
+##安装
 
 最终的目录结构应该是这样的
 
@@ -180,40 +171,38 @@ category: blog
 		}
 	}	
 
-   
-    RR0Q@ZSFDRZZDQZp9DEYrjtPMQRbY7iJf7YE0SU7:7:i7YhF0DDRRR
-    QEZERXtSZEMZZhF1DS77h9QQRF7i::chYF9UJr:.7::iYYLYpDRRMR
-    Mppb9JL1pZMRYSXD1Y19XRZtr::iichJ12cr:..7::iY7iL7UZMMZQ
-    Dhp0UrrrRZ@J7bMtcYYLhU:.::::Lj77ri:...ri::77:rricXDEQR
-    EPXPrri7PF9rZP7rri:r:......77iii::,..r:..:r::::rY1EZQ@
-    p90Jir7Y7Ectr.:.:..,,,..::ri::::....:,,,:i::::ijJL9R@R
-    JS9JJSfjU07:...,,,,....:iri:::,,,, ,,,.:7Yr77777rLU@RR
-    t7tcj7rit2Yc21PS2c7ii:..:i:.:..,..::i7JJJYJ7Yt7rL:YQRQ
-    hii7ri::r777rLY22F2tL7:iirii7t2SP99XYr:::::::i:i::7QQ@
-    E:ii7Y2FJii1fYSii:ir7ri:i::irr777L77F7YtiLUL7i::::7Z@R
-    Ei:iiJFXL:,tQ@F.r7:iri:.,,,..:ii7L.:@@Qj,cft7i.:::rMR9
-    Mr::i:iir:.,:.,.::::ii:., ,.::::i::,,:.,.:i::...:.7MEF
-    pL:i::::ii::::iri:.::i:.,,.:::..::i:..,..:...:.:::jRFS
-    0ji::...::::i:i::.:::::,,,.::.:.:.:::::.......::::R9hh
-    Sbr:::.:...:::...::::i:,,,.:::.:.:.:::::.......:.Y0Ff1
-    hDX::::.........::iii:.,,,..:::.......:.....:.:.:9EfPp
-    20QY.:::.........irr::..,,,..::i:...,.,......::.LQREED
-    2X@Qr::::.......:i7ii..,, ,,..::i..,.,...,..::::XQRRRZ
-    fSR@D:::::.:.....ii::.,,,  ,,..::...,......::::rRQMRMR
-    t1RQ@t:::::.......:i77:..,..::::.,........::::.U@MZEZD
-    2hR@@@r:::::...:...:rc77:i:ir7:.,.,......:.:..:RRDEEED
-    @Q@QQQM::::::.:.....:::........,.,,,......:...FMRZMDMD
-    Q@QRZQQD::::::.::rii::.,,...,..:::.......:..,JREDDbZbE
-    Mj22XR@@Ri::iiri7ri::::,,.,,.....::::...:...tRRZQE0ppp
-    DFFbM@R@RFii:i:i7LLYYJYc:.i7Lc7rrrr7i:...::7EDR@Q@@RQ@
-    @QRbSYLriicri:::::Y77rrrYL7iiir77...:.::i:7r::rLPMRQ@@
-    tLi:...:.i77ii::.:i7r:...:...iii:....::i:iir.,,,,,.i7U
-    .,......:i7iiii::::ir7777r7r7ri:::::::i:::ii.,,,,,, , 
-    ,,,,,,..:rri:iii::::.:::::::...:::.::i::.::i:,   , ,,,
-    ,,,,.,..:ir:::iiii:....,.,,,,,....:::...:..:i,, ,     
-    ,,,,,...:i:::::::iii::......,..:::::.......:::,.,,,, ,
-    .,,,....::i::.:.:.::iiri::::iii:i:.......,..:....,.,.,
-    ,,,,,..:::::...:...::iiiirii:::.........,,,.....,.,.,.
+ 
+    RRMMM@QRMRMMMRMRDMEbbMStYt2XhP0MEPY1h2Yb9MMMpJhYr2YhDMEZ0
+    REZR@RESbMRZZZQMDpDDDJ7YfFbZRRD2YrY2Y7Pb0PXYr7r:7cjP0bDDD
+    REMMQPfhDDZMDMpX2D0F7LfpMQRM1Yii:YFYUPSFj7::7i:i7JJJ1bMRR
+    ZhD0bJY19EMRDYXSEXjJSPDQRFLi:::iJhUhSU7::.:7i.i7Ui77YXMRR
+    0h09L77r0RZMr1DZfYctYfFY:..:::rUJ77ri:...:7:.:rL:rrirtpZE
+    DF0Urii7PYRrFbtrrii:i:.,....:rLiiii:.,..i:.,.:r:::::YJ1EM
+    X0977Jcj70177.,.,...,,,,..:irr::::....,.,,,.i7::iiiYJccpR
+    L92J1fUcU9Yriiiri::......:iri::., , , ,,.irLUJj7JUUrr7rt@
+    iL7c7r::7jcYJ1hpbbXXUY7i:::ri:i77cLJt1tjLYrrriiri7ri7r:YR
+    r:ir7LYYYri7U7Ljrrrr777riiiiii7LJt1tFtf1Li7rir7r7ii::::7R
+    7iii7US0Ui.rM@RS.r7iirri..,,,..::ri77:,Z@@@7:UF2Yr:::::7D
+    t:iiiiirri:..::,:::::ii::., ,.:::::ii:.,::,,.:i::...:::7R
+    fiii:::::i:i:::iii:::i:i:.,,.::::..::i::.,...:.....::::pM
+    97i::...:.:::::::.:::::::,,,..::.....::::::....,..:::.cRP
+    pbi:::...:.:::.:..:i:ii:..,,,:.:::.....:::::.......:::PP2
+    SRP::::::.........:irii:..,,..:.:::....,..........:::jQDX
+    FRQX::::.:.......:i7ri:.,,,,,...::ii....,........:::iMQQR
+    1b@QS::::::.:.....ir:::.,,,   ,...:i...,......::::::jQRMR
+    tbQ@QU:::i::.....:.:ir77::...::::::.,........:::::.iMQZMD
+    SD@Q@Qc.::i::.:.:....:rr7iii::iii.,,.,,.......:.:.:1@ZZED
+    Q@Q@R@Qc.:::::.:.:::::::............,,,......:..,.URZRZMZ
+    RbDPER@QS:::i:::iirii:::, ...,,,..:.:::.........:1QZMDb9b
+    2J29M@Q@QEri:iiirL7777777i...:i7ii:ir7rr::...::rb@QQQ@QRb
+    @QRDEFUY7r77ri::::iLj7c7LcY7c7rr77Y7::::::::::77ri7JpR@@@
+    Jci:::...:7Yrrii:::i77r:..::...iiri:...::::iiirr.,,,,,.:r
+    ,,,,.,..::77iirii:i::i7r7r7r7r7rr:::::::::i:::ii:,,,, ,  
+    ,,,,,,..:irr:::rii::::.............:.:.:::::.::i:.,      
+    ,,,,....:ir:i:::iiri::.......,,,....::i::......:i..,, ,  
+    ,,,.,...:iii::::.::iiiii::.:.:.::::i::..........::....,,,
+    .,.,.,..:::::.:::...::iirirrrirri:::.......,.,.........,.
+
 
 
 ##安全发布
