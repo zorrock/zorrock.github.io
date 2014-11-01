@@ -374,14 +374,37 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 至此，一个完整的环境搭建就完成了，推荐试用[DigitalOcean][DO]的VPS看看，用我的[Refer][DO]注册立刻可以得到$10的Credit赠送。
 
 
+##oracle的几条命令
+
+	lsnrctl status 
+	lsnrctl start
+	login nolog
+	conn sys/123@orcl as sysdba
+	startup
+	shutdown
+	
+
 ##多线程下的单例模式
 曾经有个叫兽说游戏的本质是打怪升级换装备，其实人生又何尝不是如此呢？
 
 不要在构造过程中使this引用逸出
 	一个常见的错误就是在构造函数中启动一个线程
 	在构造函数中调用一个可以改写的实例方法
-	可以在
-
+	又是希望在构造函数中注册一个事件监听器和启动线程，可以由一个私有的构造函数和公共的工厂方法来避免
+	
+	public class SafeListener {
+		private final EventListener listener;
+		
+		private SafeListener() {
+			listener = new EventListener() {
+				public void onEvent(Event e) {
+					SafeListener safe = new SafeListener();
+					source.registerListener(safe.listener);
+					return safe;
+				}
+			};			
+		}
+	}
 
 [DO]: https://www.digitalocean.com/?refcode=f95f7297ed94 "DigitalOcean"
 [VE]: http://www.virtualenv.org/en/latest/ "Virtualenv"
