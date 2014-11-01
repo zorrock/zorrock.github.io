@@ -21,7 +21,8 @@ category: blog
 
 nginx模块组成是这样的
 
-  /ngx_conf_module/
+
+    /ngx_conf_module/
     └── ngx_mail_module  //定义mail模块
     │   ├── ngx_mail_core_module
     │   ├── ngx_mail_imap_module
