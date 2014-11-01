@@ -30,7 +30,7 @@ nginx模块组成是这样的
     │   ├── ngx_mail_proxy_module
     │   ├── ngx_mail_pop3_module
     │   ├── ngx_mail_ssl_module
-    │   └── ngx_mail_smtp_module  //项目目录
+    │   └── ngx_mail_smtp_module 
     │
     ├── ngx_http_module  //定义http模块
     │   ├── ngx_http_core_module
@@ -128,7 +128,7 @@ nginx模块组成是这样的
 	}
 
 
-####栈封闭实例
+####ThreadLocal实例
 
 	private static ThreadLocal<Connection> connectionHolder
 		= new ThreadLocal<Connection>() {
@@ -238,11 +238,13 @@ nginx模块组成是这样的
 
 ##安全发布
 任何线程都可以在不需要额外同步的情况下安全地访问不可变对象，即使在发布这些对象时没有使用同步。
+
 安全发布的常用模式 
-在静态初始化函数中初始化一个对象引用。
-将对象的引用保存到volatile类型的域或者AtomicReferance对象中。
-将对象的引用保存到某个正确构造对象的final类型域中。
-将对象的引用保存到一个由锁保护的域中。
+
+* 在静态初始化函数中初始化一个对象引用。
+* 将对象的引用保存到volatile类型的域或者AtomicReferance对象中。
+* 将对象的引用保存到某个正确构造对象的final类型域中。
+* 将对象的引用保存到一个由锁保护的域中。
 
 
 ##几个链接而已
