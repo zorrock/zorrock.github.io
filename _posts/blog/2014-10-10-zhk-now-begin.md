@@ -22,7 +22,8 @@ category: blog
 nginx模块组成是这样的
 
 
-    /ngx_conf_module/
+    ┌—— ngx_conf_module  //配置模块
+    │ 
     └── ngx_mail_module  //定义mail模块
     │   ├── ngx_mail_core_module
     │   ├── ngx_mail_imap_module
@@ -31,7 +32,7 @@ nginx模块组成是这样的
     │   ├── ngx_mail_ssl_module
     │   └── ngx_mail_smtp_module  //项目目录
     │
-    ├──ngx_http_module  //定义http模块
+    ├── ngx_http_module  //定义http模块
     │   ├── ngx_http_core_module
     │   ├── ngx_http_headers_filter_module
     │   ├── ngx_http_log_module
@@ -41,7 +42,7 @@ nginx模块组成是这样的
     │   ├── ngx_http_static_module
     │   └── ngx_http_proxy_module  
     │   
-	├──ngx_events_module  //定义事件模块
+	├── ngx_events_module  //定义事件模块
     │   ├── ngx_event_core_module
     │   ├── ngx_epoll_module
     │   ├── ngx_selet_module
@@ -49,27 +50,22 @@ nginx模块组成是这样的
     │   ├── ngx_poll_module
     │   └── ngx_aio_module  
     │   
-	├──ngx_core_module  
+	├── ngx_core_module  
     │   
-	├──ngx_openssl_module  
+	├── ngx_openssl_module  
     │
-    └──ngx_errlog_module  
+    └── ngx_errlog_module  
  
-
-
-    bob  //用户目录
-    ├── logs
-    └── dylan  //项目目录
-        ├── bin
-        │   └── python
-        ├── lib
-        │   └── python2.7
-        ├── local
-        │   └── lib -> /home/shenye/shenyefuli/lib
-        │
-        │ //以上目录是Virtualenv生成的
-        ├── gunicorn_conf.py  //Gunicorn的配置文件
-        └── runserver.py  //hello_world程序
+核心结构体
+	
+	typedef struct {
+		//核心模块名称
+		ngx_str_t name;
+		//解析配置项前，Nginx框架调用create_conf方法
+		void *(*create_conf)(ngx_cycle_t *cycle);
+		//解析配置项完成后，Nginx框架会调用init_conf方法
+		char *(*init_conf)(ngx_cycle_t *cycle, void *conf);
+	} ngx_core_module_t;
    
 
 
