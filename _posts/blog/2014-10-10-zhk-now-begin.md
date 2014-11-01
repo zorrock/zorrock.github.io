@@ -9,33 +9,68 @@ category: blog
 
 ##开始
 
-最终的目录结构应该是这样的
+          Phase                                 Event
 
-    /home/
-    └── bob  //用户目录
-    │   ├── logs
-    │   └── dylan  //项目目录
-    │       ├── bin
-    │       │   └── python
-    │       ├── lib
-    │       │   └── python2.7
-    │       ├── local
-    │       │   └── lib -> /home/shenye/shenyefuli/lib
-    │       │
-    │       │ //以上目录是Virtualenv生成的
-    │       ├── gunicorn_conf.py  //Gunicorn的配置文件
-    │       └── runserver.py  //hello_world程序
+    建立TCP连接                               接收到TCP的SYN包     
+    开始接收用户请求                          接收到TCP中的ACK包表示连接建立
+    接收到用户请求并分析已接收的请求是否完整  接收到用户的数据包
+    接收完整的请求后开始处理                  接收到用户的数据包
+	由目标静态文件读取部分内容直接发送给用户  接收到用户的数据包或ACK包表示用户已接收数据包，TCP窗口向前滑动
+	对非keep-alive请求在发送完文件后关闭连接  接收到ACK包表示用户已接收到之前发送的所有数据包
+	用户关闭连接结束请求                      接收到FIN包
+
+nginx模块组成是这样的
+
+  /ngx_conf_module/
+    └── ngx_mail_module  //定义mail模块
+    │   ├── ngx_mail_core_module
+    │   ├── ngx_mail_imap_module
+    │   ├── ngx_mail_proxy_module
+    │   ├── ngx_mail_pop3_module
+    │   ├── ngx_mail_ssl_module
+    │   └── ngx_mail_smtp_module  //项目目录
     │
-    └── michael  //用户目录
-        ├── logs
-        └── jackson //项目目录
-            ├── bin
-            │   ├── activate
-            │   └── python
-            ├── include
-            │   └── python2.7 -> /usr/include/python2.7
-            ├── lib
-            └── runserver.py  //hello_world程序
+    ├──ngx_http_module  //定义http模块
+    │   ├── ngx_http_core_module
+    │   ├── ngx_http_headers_filter_module
+    │   ├── ngx_http_log_module
+    │   ├── ngx_http_write_filter_module
+    │   ├── ngx_http_upstream_module
+    │   ├── ngx_http_rewrite_module
+    │   ├── ngx_http_static_module
+    │   └── ngx_http_proxy_module  
+    │   
+	├──ngx_events_module  //定义事件模块
+    │   ├── ngx_event_core_module
+    │   ├── ngx_epoll_module
+    │   ├── ngx_selet_module
+    │   ├── ngx_kqueue_module
+    │   ├── ngx_poll_module
+    │   └── ngx_aio_module  
+    │   
+	├──ngx_core_module  
+    │   
+	├──ngx_openssl_module  
+    │
+    └──ngx_errlog_module  
+ 
+
+
+    bob  //用户目录
+    ├── logs
+    └── dylan  //项目目录
+        ├── bin
+        │   └── python
+        ├── lib
+        │   └── python2.7
+        ├── local
+        │   └── lib -> /home/shenye/shenyefuli/lib
+        │
+        │ //以上目录是Virtualenv生成的
+        ├── gunicorn_conf.py  //Gunicorn的配置文件
+        └── runserver.py  //hello_world程序
+   
+
 
 ##oracle的几条命令
 
@@ -223,7 +258,7 @@ category: blog
   <li><a href="http://xuanpai.sinaapp.com/fuzhus" target="_blank" class="external">网络小说辅助设定</a></li>
 </ul>
 
-[NovelAssistant][NovelAssistant]可以为帮助那些闲的蛋痛的盆友动手写小说，譬如：
+[NovelAssistant][NovelAssistant]可以帮助那些闲的蛋痛的盆友动手写小说，譬如：
 <ul>
   <li>动作语言描写</li>
   <li>情节辅助设定</li>
