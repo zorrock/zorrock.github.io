@@ -9,18 +9,27 @@ category: blog
 
 
 disqus添加到你的博客
+    
 	https://zorrock.disqus.com/admin/settings/universalcode/
+	
 流量统计系统
+
 	https://zorrock.disqus.com/admin/settings/universalcode/
+	
 IP来源分析
+
 	http://www.linezing.com/login2.php
+	
 淘宝IP地址库
+
 	http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139
 	
 并行逻辑回归
+
 	http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139
 	
 网络小说辅助设定
+
 	http://xuanpai.sinaapp.com/fuzhus
 
 我们目标实现一个支持多个独立域名网站的线上Python环境，这会用到[Virtualenv][VE]， [Flask][Flask]， [Gunicorn][GU]， [Supervisor][SV]， [Nginx][Nginx]。
