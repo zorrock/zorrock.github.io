@@ -16,9 +16,7 @@ category: blog
   <li><a href="http://xuanpai.sinaapp.com/fuzhus" target="_blank" class="external">网络小说辅助设定</a></li>
 </ul>
 
-我们目标实现一个支持多个独立域名网站的线上Python环境，这会用到[Virtualenv][VE]，[Nginx][Nginx]。
-
-
+我们目标实现一个支持多个独立域名网站的线上Python环境，这会用到[Virtualenv][SV]，[Nginx][Nginx]。
 
 ##为每个APP创建Virtualenv
 
@@ -38,45 +36,27 @@ category: blog
     │   ├── logs
     │   └── dylan  //项目目录
     │       ├── bin
-    │       │   ├── activate
-    │       │   ├── easy_install
-    │       │   ├── gunicorn
-    │       │   ├── pip
     │       │   └── python
     │       ├── include
     │       │   └── python2.7 -> /usr/include/python2.7
     │       ├── lib
     │       │   └── python2.7
-            ├── local
-    │       │   ├── bin -> /home/shenye/shenyefuli/bin
-    │       │   ├── include -> /home/shenye/shenyefuli/include
+    │       ├── local
     │       │   └── lib -> /home/shenye/shenyefuli/lib
     │       │
     │       │ //以上目录是Virtualenv生成的
     │       ├── gunicorn_conf.py  //Gunicorn的配置文件
     │       └── runserver.py  //hello_world程序
     │
-    │
     └── michael  //用户目录
         ├── logs
         └── jackson //项目目录
             ├── bin
             │   ├── activate
-            │   ├── easy_install
-            │   ├── gunicorn
-            │   ├── pip
             │   └── python
             ├── include
             │   └── python2.7 -> /usr/include/python2.7
             ├── lib
-            │   └── python2.7
-            ├── local  //以上这些文件都是Virtualenv需要的
-            │   ├── bin -> /home/shenye/shenyefuli/bin
-            │   ├── include -> /home/shenye/shenyefuli/include
-            │   └── lib -> /home/shenye/shenyefuli/lib
-            │
-            │ //以上目录是Virtualenv生成的
-            ├── gunicorn_conf.py  //Gunicorn的配置文件
             └── runserver.py  //hello_world程序
 
 ##oracle的几条命令
@@ -228,9 +208,5 @@ category: blog
 
 
 
-[DO]: https://www.digitalocean.com/?refcode=f95f7297ed94 "DigitalOcean"
-[VE]: http://www.virtualenv.org/en/latest/ "Virtualenv"
-[Flask]: http://flask.pocoo.org/docs/ "Flask"
-[GU]: http://gunicorn.org/ "Gunicorn"
 [SV]: http://supervisord.org/ "Supervisor"
 [Nginx]: http://nginx.com/ "Nginx"
