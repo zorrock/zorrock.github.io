@@ -385,10 +385,10 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 	shutdown
 	
 
-##多线程下的单例模式
+###多线程下的单例模式
 曾经有个叫兽说游戏的本质是打怪升级换装备，其实人生又何尝不是如此呢？
 
-不要在构造过程中使this引用逸出
+###不要在构造过程中使this引用逸出
 	一个常见的错误就是在构造函数中启动一个线程
 	在构造函数中调用一个可以改写的实例方法
 	又是希望在构造函数中注册一个事件监听器和启动线程，可以由一个私有的构造函数和公共的工厂方法来避免
@@ -408,7 +408,7 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 	}
 
 	
-##线程封闭
+###线程封闭
 只在单线程内访问数据部共享数据叫线程封闭。常见的两种技术应用为为Swing和JDBC。其中JDBC不要求Connection对象线程安全，对servlet而言，都是由单个线程采用同步的方式来处理，并且在Connection对象返回前，连接池不再将其分配给其他线程，这种连接管理模式在处理请求时隐含地将Connection对象封闭于线程中。
 * Ad-hoc线程封闭 比较脆弱，尽量少用。
 * 栈封闭
@@ -433,14 +433,81 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 		return numPairs;		
 	}
 	
-* ThreadLocal类
+* ThreadLocal类 维持线程封闭性更规范的方法。ThreadLocal对象通常用于防止对可变的单实例变量或全局变量进行共享。
 
+	private static ThreadLocal<Connection> connectionHolder
+		= new ThreadLocal<Connection>() {
+			public Connection initialValue() {
+				return DriverManager.getConnection(DB_URL);
+			}
+		};
+		
+	public static Connection getConnection() {
+		return connectionHolder.get();
+	}
 
+##不变性
+不可变对象一定是线程安全的。
 
+	@Immutalbe
+	public final class ThreeStooges {
+		private final Set<String> stooges = new HashSet<String>();
+		
+		public ThreeStooges() {
+			stooges.add("Moe");
+			stooges.add("Larry");
+			stooges.add("Curly");
+		}
+		
+		public boolean isStooge(String name) {
+			return stooges.contains(name);
+		}
+	}
+	
+* Final域 如“除非需要更高的可见性，否则应该将所有的域声明为私有域。”，除非需要某个域是可变的，否则应将其声明为final域。
 
+* 使用Volatile类型来发布不可变对象
 
+	@Immutable
+	class OneValueCache {
+		private final BigInteger lastNumber;
+		private final BigInteger[] lastFactors;
+		
+		public OneValueCache(BigInteger i,
+							BigInteger[] factors) {
+			lastNumber = i;
+			lastFactors = Array.copyOf(factors, factors.length);
+							
+		}
+		
+		public BigInteger[] getFactors(BigInteger i) {
+			if(lastNumber == null || !lastNumber.equal(i)) {
+				return null;
+			} else {
+				return Array.copyOf(lastFactors, lastFactors.length);
+			}
+			
+		}
+	}
+	
+	@ThreadSafe
+	public class VolatileCachedFactorizer implements Servlet {
+		private volatile OneValueCache cache = 
+			new OneValueCache(null, null);
+			
+		public void service(ServletRequest req, ServletResponse resp) {
+			BigInteger i = extractFromRequest(req);
+			BigInteger[] factors = cache.getFactors(i);
+			if(factors == null) {
+				factors = factor(i);
+				cache = new OneValueCache(i, factors);				
+			}
+			encodeIntoResponse(resp, factors);			
+		}
+		
+	}
 
-
+##安全发布
 
 
 
