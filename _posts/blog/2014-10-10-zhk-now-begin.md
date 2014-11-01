@@ -5,101 +5,20 @@ description: 工欲善其事必先利其器。关键字：Vim, Sublime Text2, No
 category: blog
 ---
 
-新用户注册购买[DigitalOcean][DO]的VPS，现在使用我的[Refer][DO]注册，即刻获得$10赠送，低配的可用两个月。DO采取丧心病狂的低价竞争策略，每月$5即可享用全功能的SSD硬盘VPS，具体去看看[这里][DO]吧。
+曾经有个叫兽说游戏的本质是打怪升级换装备，其实人生又何尝不是如此呢？
 
-
-disqus添加到你的博客
-    
-	https://zorrock.disqus.com/admin/settings/universalcode/
-	
-流量统计系统
-
-	https://zorrock.disqus.com/admin/settings/universalcode/
-	
-IP来源分析
-
-	http://www.linezing.com/login2.php
-	
-淘宝IP地址库
-
-	http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139
-	
-并行逻辑回归
-
-	http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139
-	
-网络小说辅助设定
-
-	http://xuanpai.sinaapp.com/fuzhus
-
-我们目标实现一个支持多个独立域名网站的线上Python环境，这会用到[Virtualenv][VE]， [Flask][Flask]， [Gunicorn][GU]， [Supervisor][SV]， [Nginx][Nginx]。
-
-##配置用户环境
-因为要跑多个站，所以最好将他们完全隔离，每个站对应一个用户，于是我们有了：
-
-     User        Site
-
-     bob         dylan     ##bob用户有一个dylan的站
-    michael     jackson    ##michael用户有一个jackson的站
-
-注册成功后，会收到DO发来的`root`账户的密码邮件，`ssh root@你的IP地址`登录上去开始添加用户。
-
-    ##推荐安装zsh作为默认shell
-    sudo apt-get update
-    sudo apt-get install zsh
-
-    ##安装oh-my-zsh插件
-    cd ~/.
-    ##自动安装脚本
-    wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-
-    ##添加用户bob
-    ##参数-d：指定用户目录
-    ##参数-m：如果目录不存在则创建
-    ##参数-s：只用用户使用的 shell
-    useradd bob -d /home/bob -m -s /bin/zsh
-
-    #添加用户michael
-    useradd michael -d /home/michael -m -s /bin/zsh
-
-    ##以上参数也可以修改passwd文件来调整
-    sudo vim /etc/passwd
-
-    ##sudo和用户组管理在
-    visudo
-    sudo vim /etc/sudoers
-
-新增用户之后，需要解锁：
-
-    ##为新增用户设置一个初始密码即可解锁
-    passwd bob
-    passwd michael
-
-用ssh-keygen建立信任关系可以方便登录管理：
-
-    ##本地机器
-    ##会在~/.ssh目录下生成秘钥文件id_rsa、id_rsa.pub
-    ssh-keygen -t [rsa|dsa]
-
-    ##复制公钥文件id_rsa.pub
-    scp ~/.ssh/id_rsa.pub bob@digitalocean:~/.ssh
-
-    ##VPS上，添加本地机器的信任关系
-    cd ~/.ssh
-    cat id_rsa.pub >> ~/.ssh/authorized_keys
-
-    ##OK，从本地机器登录到VPS的bob用户就不需要密码了
-    ##同理，也可以添加到michael用户的.ssh目录下
-
-更多资料可以阅读：
 <ul>
-  <li><a href="http://www.chinaunix.net/old_jh/4/438660.html" target="_blank" class="external">Linux的用户和用户组管理</a></li>
-  <li><a href="http://sofish.de/1685" target="_blank" class="external">把 Mac 上的 bash 换成 zsh</a></li>
-  <li><a href="http://leeiio.me/bash-to-zsh-for-mac/" target="_blank" class="external">zsh – 给你的Mac不同体验的Terminal</a></li>
-  <li><a href="http://blog.csdn.net/kongqz/article/details/6338690" target="_blank" class="external">ssh-keygen的使用方法</a></li>
-  <li><a href="http://www.ruanyifeng.com/blog/2014/03/server_setup.html" target="_blank" class="external">Linux服务器的初步配置流程</a></li>
-  <li><a href="http://www.ruanyifeng.com/blog/2014/03/server_setup.html" target="_blank" class="external">Linux服务器的初步配置流程</a></li>
+  <li><a href="https://zorrock.disqus.com/admin/settings/universalcode/" target="_blank" class="external">disqus添加到你的博客</a></li>
+  <li><a href="https://zorrock.disqus.com/admin/settings/universalcode/" target="_blank" class="external">流量统计系统</a></li>
+  <li><a href="http://www.linezing.com/login2.php" target="_blank" class="external">IP来源分析</a></li>
+  <li><a href="http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139" target="_blank" class="external">淘宝IP地址库</a></li>
+  <li><a href="http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139" target="_blank" class="external">并行逻辑回归</a></li>
+  <li><a href="http://xuanpai.sinaapp.com/fuzhus" target="_blank" class="external">网络小说辅助设定</a></li>
 </ul>
+
+我们目标实现一个支持多个独立域名网站的线上Python环境，这会用到[Virtualenv][VE]，[Nginx][Nginx]。
+
+
 
 ##为每个APP创建Virtualenv
 
@@ -111,55 +30,6 @@ IP来源分析
 </ul>
 
 ##安装Flask
-[Flask][Flask]是Python流行的一个web框架，但是Flask比Django轻量了许多，使用更加直观，这里并不展开讲Flask的细节，当做一个Hello Wordld来用就好了。
-
-    ##安装Flask
-    ##依然在virtualenv activate的环境下
-    pip install Flask
-
-    ##根目录下
-    vim runserver.py
-
-    ##写入Flask的Hello World
-    from flask import Flask
-    app = Flask(__name__)
-
-    @app.route('/')
-    def hello_world():
-        return 'Hello World!'
-
-        if __name__ == '__main__':
-            app.run()
-
-写入之后，如果在本地机器上可以运行`python runserver.py`，然后打开`127.0.0.1:5000`看到Hello World!了，但在VPS，这样不行，等待后面配置吧。
-
-##安装Gunicorn
-[Gunicorn][Gu]是用于部署WSGI应用的，任何支持WSGI的都可以，虽说直接`python runserver.py`这样网站也能跑起来，但那是方便开发而已，在线上环境，还是需要更高效的组件来做。
-
-    ##安装Gunicorn
-    ##依然在Virtualenv环境下
-    pip install gunicorn
-
-Gunicorn的配置是必须的，因为我们要上两个独立的站，所以不能都用默认的配置：
-
-    ##在bob的dylan项目下
-    cd /home/bob/dylan
-    vim gunicorn.conf
-
-    ##文件内写入以下内容
-    ##指定workers的数目，使用多少个进程来处理请求
-    ##绑定本地端口
-    workers = 3
-    bind = '127.0.0.1:8000'
-
-    ##在michael的jackson项目下
-    cd /home/michael/jackson
-    vim gunicorn.conf
-
-    ##写入文件内容
-    ##与dylan的端口要不一样
-    workers = 3
-    bind = '127.0.0.1:8100'
 
 最终的目录结构应该是这样的
 
@@ -221,7 +91,7 @@ Gunicorn的配置是必须的，因为我们要上两个独立的站，所以不
 	
 
 ###多线程下的单例模式
-曾经有个叫兽说游戏的本质是打怪升级换装备，其实人生又何尝不是如此呢？
+
 
 ###不要在构造过程中使this引用逸出
 	一个常见的错误就是在构造函数中启动一个线程
