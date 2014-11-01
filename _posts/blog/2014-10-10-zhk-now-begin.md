@@ -1,13 +1,27 @@
 ---
 layout: post
 title: 编程工具
-description: 工欲善其事必先利其器。关键字：Vim, Sublime Text2, Notepad++, secureCTR, beyondcompare
+description: 工欲善其事必先利其器。关键字：Vim, Sublime Text2, Notepad++, secureCTR, beyondcompare, StackEdit
 category: blog
 ---
 
 新用户注册购买[DigitalOcean][DO]的VPS，现在使用我的[Refer][DO]注册，即刻获得$10赠送，低配的可用两个月。DO采取丧心病狂的低价竞争策略，每月$5即可享用全功能的SSD硬盘VPS，具体去看看[这里][DO]吧。
 
 
+disqus添加到你的博客
+	https://zorrock.disqus.com/admin/settings/universalcode/
+流量统计系统
+	https://zorrock.disqus.com/admin/settings/universalcode/
+IP来源分析
+	http://www.linezing.com/login2.php
+淘宝IP地址库
+	http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139
+	
+并行逻辑回归
+	http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139
+	
+网络小说辅助设定
+	http://xuanpai.sinaapp.com/fuzhus
 
 我们目标实现一个支持多个独立域名网站的线上Python环境，这会用到[Virtualenv][VE]， [Flask][Flask]， [Gunicorn][GU]， [Supervisor][SV]， [Nginx][Nginx]。
 
