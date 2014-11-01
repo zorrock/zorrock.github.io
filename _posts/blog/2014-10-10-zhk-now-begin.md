@@ -412,7 +412,10 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 只在单线程内访问数据部共享数据叫线程封闭。常见的两种技术为Swing和JDBC。其中JDBC不要求Connection对象线程安全，对servlet而言，都是由单个线程采用同步的方式来处理，并且在Connection对象返回前，连接池不再将其分配给其他线程，这种连接管理模式在处理请求时隐含地将Connection对象封闭于线程中。
 
 * Ad-hoc线程封闭 比较脆弱，尽量少用。
-* 栈封闭
+* 栈封闭	
+* ThreadLocal类 维持线程封闭性更规范的方法。ThreadLocal对象通常用于防止对可变的单实例变量或全局变量进行共享。
+
+####栈封闭实例
 
 	public int loadTheArk(Collection<Animal> candidates) {
 		SortedSet<Animal> animals;
@@ -433,8 +436,9 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 		}
 		return numPairs;		
 	}
-	
-* ThreadLocal类 维持线程封闭性更规范的方法。ThreadLocal对象通常用于防止对可变的单实例变量或全局变量进行共享。
+
+
+####栈封闭实例
 
 	private static ThreadLocal<Connection> connectionHolder
 		= new ThreadLocal<Connection>() {
@@ -469,7 +473,7 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 
 * 使用Volatile类型来发布不可变对象
 
-
+####实例
 	@Immutable
 	class OneValueCache {
 		private final BigInteger lastNumber;
