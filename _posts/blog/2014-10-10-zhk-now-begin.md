@@ -170,40 +170,6 @@ category: blog
 			encodeIntoResponse(resp, factors);			
 		}
 	}
-	
-	 
-    //RRMMM@QRMRMMMRMRDMEbbMStYt2XhP0MEPY1h2Yb9MMMpJhYr2YhDMEZ0
-    //REZR@RESbMRZZZQMDpDDDJ7YfFbZRRD2YrY2Y7Pb0PXYr7r:7cjP0bDDD
-    //REMMQPfhDDZMDMpX2D0F7LfpMQRM1Yii:YFYUPSFj7::7i:i7JJJ1bMRR
-    //ZhD0bJY19EMRDYXSEXjJSPDQRFLi:::iJhUhSU7::.:7i.i7Ui77YXMRR
-    //0h09L77r0RZMr1DZfYctYfFY:..:::rUJ77ri:...:7:.:rL:rrirtpZE
-    //DF0Urii7PYRrFbtrrii:i:.,....:rLiiii:.,..i:.,.:r:::::YJ1EM
-    //X0977Jcj70177.,.,...,,,,..:irr::::....,.,,,.i7::iiiYJccpR
-    //L92J1fUcU9Yriiiri::......:iri::., , , ,,.irLUJj7JUUrr7rt@
-    //iL7c7r::7jcYJ1hpbbXXUY7i:::ri:i77cLJt1tjLYrrriiri7ri7r:YR
-    //r:ir7LYYYri7U7Ljrrrr777riiiiii7LJt1tFtf1Li7rir7r7ii::::7R
-    //7iii7US0Ui.rM@RS.r7iirri..,,,..::ri77:,Z@@@7:UF2Yr:::::7D
-    //t:iiiiirri:..::,:::::ii::., ,.:::::ii:.,::,,.:i::...:::7R
-    //fiii:::::i:i:::iii:::i:i:.,,.::::..::i::.,...:.....::::pM
-    //97i::...:.:::::::.:::::::,,,..::.....::::::....,..:::.cRP
-    //pbi:::...:.:::.:..:i:ii:..,,,:.:::.....:::::.......:::PP2
-    //SRP::::::.........:irii:..,,..:.:::....,..........:::jQDX
-    //FRQX::::.:.......:i7ri:.,,,,,...::ii....,........:::iMQQR
-    //1b@QS::::::.:.....ir:::.,,,   ,...:i...,......::::::jQRMR
-    //tbQ@QU:::i::.....:.:ir77::...::::::.,........:::::.iMQZMD
-    //SD@Q@Qc.::i::.:.:....:rr7iii::iii.,,.,,.......:.:.:1@ZZED
-    //Q@Q@R@Qc.:::::.:.:::::::............,,,......:..,.URZRZMZ
-    //RbDPER@QS:::i:::iirii:::, ...,,,..:.:::.........:1QZMDb9b
-    //2J29M@Q@QEri:iiirL7777777i...:i7ii:ir7rr::...::rb@QQQ@QRb
-    //@QRDEFUY7r77ri::::iLj7c7LcY7c7rr77Y7::::::::::77ri7JpR@@@
-    //Jci:::...:7Yrrii:::i77r:..::...iiri:...::::iiirr.,,,,,.:r
-    //,,,,.,..::77iirii:i::i7r7r7r7r7rr:::::::::i:::ii:,,,, ,  
-    //,,,,,,..:irr:::rii::::.............:.:.:::::.::i:.,      
-    //,,,,....:ir:i:::iiri::.......,,,....::i::......:i..,, ,  
-    //,,,.,...:iii::::.::iiiii::.:.:.::::i::..........::....,,,
-    //.,.,.,..:::::.:::...::iirirrrirri:::.......,.,.........,.
-	
-
  
     /*RRMMM@QRMRMMMRMRDMEbbMStYt2XhP0MEPY1h2Yb9MMMpJhYr2YhDME
     REZR@RESbMRZZZQMDpDDDJ7YfFbZRRD2YrY2Y7Pb0PXYr7r:7cjP0bDDD
