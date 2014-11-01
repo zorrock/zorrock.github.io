@@ -378,7 +378,8 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 
 	lsnrctl status 
 	lsnrctl start
-	login nolog
+	sqlplus nolog
+	conn / as sysdba
 	conn sys/123@orcl as sysdba
 	startup
 	shutdown
@@ -405,6 +406,49 @@ Nginx的配置文件和Supervisor类似，不同的程序可以分别配置，�
 			};			
 		}
 	}
+
+	
+##线程封闭
+只在单线程内访问数据部共享数据叫线程封闭。常见的两种技术应用为为Swing和JDBC。其中JDBC不要求Connection对象线程安全，对servlet而言，都是由单个线程采用同步的方式来处理，并且在Connection对象返回前，连接池不再将其分配给其他线程，这种连接管理模式在处理请求时隐含地将Connection对象封闭于线程中。
+* Ad-hoc线程封闭 比较脆弱，尽量少用。
+* 栈封闭
+
+	public int loadTheArk(Collection<Animal> candidates) {
+		SortedSet<Animal> animals;
+		int numPairs = 0;
+		Animal candidate = null;
+		
+		//animals被封闭在方法中，不要使他们逸出
+		animals = new TreeSet<Animal>(new SpeciesGenderComparator());
+		animals.addAll(candidates);
+		for(Animal a:animals) {
+			if(candidate == null || candidate.isPotentialMate(a))
+				candidate = a;
+			else {
+				ark.load(new AnimalPair(candidate, a));
+				++numPairs;
+				candidate = null;
+			}
+		}
+		return numPairs;		
+	}
+	
+* ThreadLocal类
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [DO]: https://www.digitalocean.com/?refcode=f95f7297ed94 "DigitalOcean"
 [VE]: http://www.virtualenv.org/en/latest/ "Virtualenv"
