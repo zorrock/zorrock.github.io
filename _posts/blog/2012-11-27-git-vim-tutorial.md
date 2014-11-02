@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Git时代的VIM不完全使用教程
+title: 快捷键：唯快不破
 description: 在Git流行的时代，VIM的生态环境也有了长足的进步，令人感动。
 category: blog
 ---
@@ -222,10 +222,123 @@ VIM的基本操作，可以挖掘的东西非常多，不仅仅需要记忆，�
 因为配置不断在更新，所以放上我的配置的链接：[.vimrc配置][vimrc]
 
 ##更多
-本人编程环境为windows，部分配置不相同，未安装Bundle插件,配置方案设置为torte（colorscheme torte），字体设置为Consolas（set guifont=Consolas:h10）以及注释掉关闭菜单和工具的配置，另外给Eclipse颜色设置为黑色风格(在help-->eclispe Marketplace下安装eclispe color theme插件)
+本人编程环境为windows，部分配置不相同，未安装Bundle插件,配置方案设置为torte（colorscheme torte），字体设置为Consolas（set guifont=Consolas:h10）以及注释掉关闭菜单和工具的配置，另外给Eclipse颜色设置为黑色风格(在help-->eclispe Marketplace下安装eclispe color theme插件).几个插入模式下的快捷键:
+
+    CTRL+D 减少缩进
+    CTRL+T 增加缩进
+    CTRL+Y 复制上一行的相同列的字符
+    CTRL+W 删除光标左侧的单词
+
+    .           可以重复上一次的命令
+    N<command>  重复某个命令N次
+    %           匹配括号移动，包括 (, {, [. 
+    *和#        配光标当前所在的单词，移动光标到下一个（或上一个）匹配单词
+    gU          变大写
+    gu          变小写
+    t,          到逗号前的第一个字符。逗号可以变成其它字符
+    3fa         在当前行查找第三个出现的a
+
+    0 <C-v> <C-d> I-- [ESC]
+
+    qa 把你的操作记录在寄存器 a
+    @a replay被录制的宏
+    @@ 是一个快捷键用来replay最新录制的宏
+
+    J       把所有的行连接起来（变成一行）
+    < 或 >  左右缩进
+    =       自动给缩进
+
+    在所有被选择的行后加上点东西：
+    <C-v>
+    选中相关的行 (可使用 j 或 <C-d> 或是 /pattern 或是 % 等……)
+    $ 到行最后
+    A, 输入字符串，按 ESC
+
+    nmap <c-enter> <End>A<cr> " 正常模式下的换行并新建一行
+    imap <c-enter> <End><cr> " 插入模式下的换行并新建一行
+
+    几个模式区别和切换, Normal, Visual, Insert, Command （i, c, esc, C-c, v, V, C-v...）
+    移动的各种技法，基本（h, j, k, l），object移动（w,W, b, B, f, F...）
+    搜索和替换的各种技法，/, ?, :s// 
+
+eclipse的几个快捷键:
+
+    ctrl+shift+r：打开资源
+    ctrl+o：快速outline
+    ctrl+d: 删除当前行
+    alt+shift+r：重命名
+    alt+shift+j：添加注释
+    alt+shift+l以及alt+shift+m：提取本地变量及方法
+    alt+shift+c:修改函数结构(比较实用,有n个函数调用了这个方法,修改一次搞定)alt+shift+f: 把class中的local变量变为field变量 (比较实用的功能)
+    alt+shift+i: 合并变量
+    alt+shift+v: 移动函数和变量(不怎么常用)
+    alt+shift+z: 重构的后悔药(undo)
+    shift+enter:在当前行之下创建一个空白行
+    ctrl+shift+enter:则在当前行之前插入空白行
+    alt+方向键:将当前行的内容往上或下移动
+    ctrl+m:编辑器窗口最大化。
+    ctrl+.及ctrl+1：下一个错误及快速修改
+    ctrl+q: 回到最后一次编辑的地方
+    ctrl+t:查看一个类的继承关系树
+    ctrl+shift+m:添加单个import 
+    ctrl+shift+o:组织多个import 
+    ctrl+shift+x:把当前选中的文本全部变味小写
+    ctrl+shift+y:把当前选中的文本全部变为小写
+    ctrl+shift+p:定位到对于的匹配符
+    更多快捷键组合可在eclipse按下ctrl+shift+l查看
+
+notepad++快捷键:
+
+    ctrl+d 复制并粘贴当行
+    ctrl+l 删除当前行
+    ctrl+t 当行向上移动一行
+    ctrl+u 转换为小写
+    ctrl+shift+u 转换为大写
+    ctrl+b 转至匹配的括号
+    alt+鼠标左键 单击列选择
+
+sublime快捷键:
+
+    ctrl+l：选择整行(按住-继续选择下行)
+    ctrl+kk：从光标处删除至行尾
+    ctrl+shift+k：删除整行
+    ctrl+shift+d：复制光标所在整行，插入在该行之前
+    ctrl+j：合并行(已选择需要合并的多行时)
+    ctrl+ku：改为大写
+    ctrl+kl：改为小写
+    ctrl+d：选词(按住-继续选择下个相同的字符串)
+    ctrl+m：光标移动至括号内开始或结束的位置
+    ctrl+shift+m：选择括号内的内容(按住-继续选择父括号)
+    ctrl+/：注释整行(如已选择内容，同“ctrl+shift+/”效果)
+    ctrl+shift+/：注释已选择内容
+    ctrl+space：自动完成(win与系统快捷键冲突，需修改)
+    ctrl+z：撤销
+    ctrl+y：恢复撤销
+    ctrl+shift+v：粘贴并自动缩进(其它兄弟写的，实测win系统自动缩进无效)
+    ctrl+m：光标跳至对应的括号
+    alt+.：闭合当前标签
+    ctrl+shift+a：选择光标位置父标签对儿
+    ctrl+shift+[：折叠代码
+    ctrl+shift+]：展开代码
+    ctrl+kt：折叠属性
+    ctrl+k0：展开所有
+    ctrl+u：软撤销
+    ctrl+t：词互换
+    ctrl+enter：插入行后
+    ctrl+shift enter：插入行前
+    ctrl+k backspace：从光标处删除至行首
+    ctrl+shift+up：与上行互换
+    ctrl+shift+down：与下行互换
+    shift+tab：去除缩进
+    f9：行排序(按a-z)
+
+
+
 
 关于VIM的使用，这篇博客仅仅介绍了很小的一部分，网络上还有大量朋友总结的心得，常学常有收获：
 
+
+- [CoolShell][coolshell]，简明 Vim 练级攻略
 - [Practical Vim][p-vim]，强烈推荐的一本系统介绍VIM的书籍
 - [Vim Cheat Sheet][vim-cs]，有VIM的各种助记图，可以作为桌面
 - [Vimer的程序世界][14]，不错的站，博主持续钻研VIM各种技巧
@@ -236,7 +349,7 @@ VIM的基本操作，可以挖掘的东西非常多，不仅仅需要记忆，�
 - [挑選 Vim 顏色(Color Scheme)][13]
 - [vimium][18]，用VIM的操作习惯来控制Chrome的插件
 
-
+[coolshell]: http://coolshell.cn/articles/5426.html
 [BeiYuu]:    http://beiyuu.com  "BeiYuu"
 [1]:    {{ page.url}}  ({{ page.title }})
 [2]:    https://github.com/gmarik/vundle
