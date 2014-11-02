@@ -1,33 +1,27 @@
 ---
 layout: post
-title: Notty Notes
+title: Some Link
 category: project
-description: 对于不满意确很需要的东西，只能自己动手，比如这个Chrome的便签插件。
----
+description: 搭建博客时添加评论和流量统计的网站链接，咦好像混入了奇怪的东西。
 
-[Notty Notes][Notty]是为我自己写的便签插件，满足基本需求，并且看起来比较舒适，这是我的目标。可以在Chrome Store中下载安装，感谢[靖哥哥][2]帮我做宣传图：
 
-<a href="https://chrome.google.com/webstore/detail/notty-notes/ggbmjahbkbhakkfgjiggdclpmmpmhajn?hl=zh-CN" title="Notty Notes" target="_blank"><img src="/images/backbonechrome/notes-logo.jpg" alt="Notty Notes"></a>
-
-主要有如下几个优势：
-
+##几个链接而已
 <ul>
-	<li>简单、美观</li>
-	<li>离线使用</li>
-	<li>自动保存</li>
+  <li><a href="https://zorrock.disqus.com/admin/settings/universalcode/" target="_blank" class="external">disqus添加到你的博客</a></li>
+  <li><a href="https://zorrock.disqus.com/admin/settings/universalcode/" target="_blank" class="external">流量统计系统</a></li>
+  <li><a href="http://www.linezing.com/login2.php" target="_blank" class="external">IP来源分析</a></li>
+  <li><a href="http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139" target="_blank" class="external">淘宝IP地址库</a></li>
+  <li><a href="http://ip.taobao.com/ipSearch.php?ipAddr=101.71.243.139" target="_blank" class="external">并行逻辑回归</a></li>
+  <li><a href="http://xuanpai.sinaapp.com/fuzhus" target="_blank" class="external">网络小说辅助设定</a></li>
 </ul>
 
-在背景上双击，就会添加新的便签，点击便签的标题部分可以单独配置背景主题、字号大小等。可以加锁，可以收起。
-
-现在还没有做同步功能，仍在考虑之中，这个插件的完成，花了不少功夫，细节方面我认为想到做到很多，可以自行体会，如果有不满意的地方，欢迎吐槽。 截图看看：
-
-![Notes Draft](/images/backbonechrome/notes-draft.jpg)
-
-日子穿行而过，带来很多，也逝去很多，不管你愿不愿意接受，就这么自然的发生了。
-
-追求的太多，必定是折磨，只是，不一定所有人都知道，折磨越久，快乐才更高。
-
-怎样写这个插件，可以看我的教程：[Backbone.js的使用及Chrome插件开发][3]。
+[NovelAssistant][NovelAssistant]可以帮助那些闲的蛋痛的盆友动手写小说，譬如：
+<ul>
+  <li>动作语言描写</li>
+  <li>情节辅助设定</li>
+  <li>人物活动背景设定</li>
+  <li>等等</li>
+</ul>
 
 [BeiYuu]:    http://beiyuu.com  "BeiYuu"
 [1]:    {{ page.url}}  ({{ page.title }})
