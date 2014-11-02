@@ -1,18 +1,21 @@
 ---
 layout: post
 title: 快捷键：唯快不破
-description: 在Git流行的时代，VIM的生态环境也有了长足的进步，令人感动。
+description: 在快捷键让我们更快。
 category: blog
 ---
 
 
-本人编程环境为windows，部分配置不相同，未安装Bundle插件,配置方案设置为torte（colorscheme torte），字体设置为Consolas（set guifont=Consolas:h10）以及注释掉关闭菜单和工具的配置，另外给Eclipse颜色设置为黑色风格(在help-->eclispe Marketplace下安装eclispe color theme插件).几个插入模式下的快捷键:
+编程环境为windows，部分配置不相同，未安装Bundle插件,配置中颜色方案设置为torte（colorscheme torte），字体设置为Consolas（set guifont=Consolas:h10）以及注释掉关闭菜单和工具的配置，另外给eclipse颜色设置为黑色风格(在help-->eclispe Marketplace下安装eclispe color theme插件).
+
+    几个插入模式下的快捷键:
 
     CTRL+D 减少缩进
     CTRL+T 增加缩进
     CTRL+Y 复制上一行的相同列的字符
     CTRL+W 删除光标左侧的单词
 
+    命令模式下的快捷键:
     .           可以重复上一次的命令
     N<command>  重复某个命令N次
     %           匹配括号移动，包括 (, {, [. 
@@ -41,7 +44,7 @@ category: blog
     nmap <c-enter> <End>A<cr> " 正常模式下的换行并新建一行
     imap <c-enter> <End><cr> " 插入模式下的换行并新建一行
 
-    几个模式区别和切换, Normal, Visual, Insert, Command （i, c, esc, C-c, v, V, C-v...）
+    模式区别和切换, Normal, Visual, Insert, Command （i, c, esc, C-c, v, V, C-v...）
     移动的各种技法，基本（h, j, k, l），object移动（w,W, b, B, f, F...）
     搜索和替换的各种技法，/, ?, :s// 
 
@@ -117,7 +120,9 @@ sublime快捷键:
     f9：行排序(按a-z)
 
 
-原文转载自:- [Git-Vim-Tutorial][GitVim]，Git时代的VIM不完全使用教程
+##原文转载自
+
+[Git-Vim-Tutorial][GitVim]，Git时代的VIM不完全使用教程
 
 最近整理了VIM的配置，换上插件管理的神器-----[Vundle][2]，由他引发的VIM生态环境的改善，堪称完美。遂打算写一份简单的教程，分享Git时代VIM新世界的美丽动人之处。**对VIM有基础的同学，可直接跳至插件管理部分。**
 
@@ -334,11 +339,6 @@ VIM的基本操作，可以挖掘的东西非常多，不仅仅需要记忆，�
 
 ##.vimrc配置
 因为配置不断在更新，所以放上我的配置的链接：[.vimrc配置][vimrc]
-
-##更多
-
-
-
 
 
 关于VIM的使用，这篇博客仅仅介绍了很小的一部分，网络上还有大量朋友总结的心得，常学常有收获：
