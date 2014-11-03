@@ -175,8 +175,133 @@ category: blog
 
 ##组合对象
 ###设计线程安全的类
-###实例限制
+###实例封闭
+
+	@ThreadSafe
+	public class PersonSet {
+		@GuardBy("this")
+		private final Set<Person> mySet = new HashSet<Person>();
+		
+		public synchronized void addPerson(Person p) {
+			mySet.add(p);
+		}
+		
+		public synchronized boolean containsPerson(Person p) {
+			return mySet.contains(p);
+		}
+	}
+	
+	java监视器模式
+	
+	@ThreadSafe
+	public final class Counter {
+		private long value = 0;
+	
+		public synchronized long getValue() {
+			return value;
+		}
+	
+		public synchronized long increment() {
+			if(value == Long.MAX_VALUE)
+				throw new IllegalStateException("counter overflow");
+			return value++;
+		}
+	}
+	
+	
+	@ThreadSafe
+	public class MonitorVehicleThracker {
+		private final Map<String, MutablePoint> locations;
+	
+		public MonitorVehicleThracker(Map<String, MutablePoint> locations) {
+			this.locations =deepcopy(locations);
+		}
+	
+		public synchronized Map<String, MutablePoint> getLocations() {
+		return deepcopy(locations);
+		}
+	
+		public synchronized  MutablePoint getLocation(String id) {
+		MutablePoint loc = locations.get(id);
+		return loc == null?null: new MutablePoint(loc);
+		}
+	
+		public synchronized void setLocation(String id, int x, int y) {
+			MutablePoint loc = locations.get(id);
+			if(loc == null)
+				throw new IllegalArgumentException("No such ID: "+ id);
+			loc.x = x;
+			loc.y = y;
+		}
+	
+		private static Map<String, MutablePoint> deepCopy(Map<String, MutablePoint> m) {
+			Map<String, MutablePoint> result = new HashMap<String, MutablePoint>();
+			for(String id:m.keySet())
+				result.put(id, new MutablePoint(m.get(id)));
+			return Collections.unmodifiableMap(result);
+		}
+	
+	
+	
+	}
+	
+	
+	@NotThreadSafe
+	public class MutablePoint {
+		public int x, y;
+	
+		public MutablePoint() {
+			x = 0;
+			y = 0;
+		}
+	
+		public MultablePoint(MultablePoint p) {
+			this.x = x;
+			this.y = y;
+		}
+	}
+
+
+
 ###委托线程安全
+
+	@Immutable
+	public class Point {
+		public final int x, y;
+		
+		public Point(int x, int y) {
+			this.x = x;
+			this.y = y;
+		}
+	}
+	
+	@ThreadSafe
+	public class DelegatingVehicleTracker {
+		private final ConcurrentMap<String, Point> locations;
+		private final Map<String, Point> unmodifiableMap;
+		
+		public DelegatingVehicleTracker(Map<String, Point> points) {
+			locations = new ConcurrentHashMap<String, Point>(points);
+			unmodifiableMap = Collections.unmodifiableMap(locations);
+		}
+		
+		public Map<String, Point> getLocations() {
+			return unmodifiableMap;
+		}
+		
+		public Point getLocation(String id) {
+			return locations.get(id);
+		}
+		
+		public void setLocation(String id, int x, int y) {
+			if(locations.replace(id, new Point(x, y)) == null)
+				throw new IllegalArgumentException(
+					"invalid vehicle name: " + id);
+		}
+	}
+	
+		
+
 ###向已有的线程安全类添加功能
 ###同步策略的文档化
 
