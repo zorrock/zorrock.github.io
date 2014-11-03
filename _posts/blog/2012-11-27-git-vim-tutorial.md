@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 快捷键：唯快不破
-description: 在快捷键让我们更快。
+description: 快捷键让我们更快。
 category: blog
 ---
 
@@ -56,7 +56,8 @@ eclipse的几个快捷键:
     alt+shift+r：重命名
     alt+shift+j：添加注释
     alt+shift+l以及alt+shift+m：提取本地变量及方法
-    alt+shift+c:修改函数结构(比较实用,有n个函数调用了这个方法,修改一次搞定)alt+shift+f: 把class中的local变量变为field变量 (比较实用的功能)
+    alt+shift+c: 修改函数结构(比较实用,有n个函数调用了这个方法,修改一次搞定)
+	alt+shift+f: 把class中的local变量变为field变量
     alt+shift+i: 合并变量
     alt+shift+v: 移动函数和变量(不怎么常用)
     alt+shift+z: 重构的后悔药(undo)

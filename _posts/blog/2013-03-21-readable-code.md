@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 重构
-description: 将《The Art of Readable Code》的读书笔记和一点自己的认识总结起来写就这么一篇博客，强烈推荐此书。
+description: 编写可以让同类阅读的代码。
 category: blog
 ---
 
-##征兆
+###征兆
 
 * **庞大臃肿的类**
 * **长方法**
