@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java代码规范
-description: 写不把别人逼上绝路的代码
+description: 写不把别人逼上绝路的代码。
 category: blog
 ---
 
@@ -314,6 +314,7 @@ http://java.sun.com/javadoc/index.html
 
 - 在方法名与其参数列表之前的左括号"("间不要有空格
 - 左大括号"{"位于声明语句同行的末尾
+- 方法与方法之间以空行分隔
 - 右大括号"}"另起一行，与相应的声明语句对齐，除非是一个空语句，"}"应紧跟在"{"之后
 
 	class Sample extends Object {
@@ -330,7 +331,7 @@ http://java.sun.com/javadoc/index.html
 		...
 	}
 	  
-- 方法与方法之间以空行分隔
+
 ##语句(Statements)
 
 ###简单语句(Simple Statements)
