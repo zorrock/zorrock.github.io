@@ -316,7 +316,9 @@ http://java.sun.com/javadoc/index.html
 - 左大括号"{"位于声明语句同行的末尾
 - 方法与方法之间以空行分隔
 - 右大括号"}"另起一行，与相应的声明语句对齐，除非是一个空语句，"}"应紧跟在"{"之后
+
 例如：
+
 	class Sample extends Object {
 		int ivar1;
 		int ivar2;
