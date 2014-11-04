@@ -168,20 +168,6 @@ Java程序有两类注释：实现注释(implementation comments)和文档注释
 	* Here is a block comment.
 	*/
 	  
-块注释可以以/*-开头，这样indent(1)就可以将之识别为一个代码块的开始，而不会重排它。
-
-	/*-
-     * Here is a block comment with some very special
-     * formatting that I want indent(1) to ignore.
-     *
-     *    one
-     *        two
-     *            three
-     */
-	  
-注意：如果你不使用indent(1)，就不必在代码中使用/*-，或为他人可能对你的代码运行indent(1)作让步。
-
-参见"文档注释"
 
 ####单行注释(Single-Line Comments)
 
@@ -231,13 +217,8 @@ Java程序有两类注释：实现注释(implementation comments)和文档注释
 
 注意：此处描述的注释格式之范例，参见"Java源文件范例"
 
-若想了解更多，参见"How to Write Doc Comments for Javadoc"，其中包含了有关文档注释标记的信息(@return, @param, @see)：
+若想了解更多，参见[javadoc][javadoc]。
 
-http://java.sun.com/javadoc/writingdoccomments/index.html
-
-若想了解更多有关文档注释和javadoc的详细资料，参见javadoc的主页：
-
-http://java.sun.com/javadoc/index.html
 
 文档注释描述Java的类、接口、构造器，方法，以及字段(field)。每个文档注释都会被置于注释定界符/**...*/之中，一个注释对应一个类、接口或成员。该注释应位于声明之前：
 
@@ -248,7 +229,7 @@ http://java.sun.com/javadoc/index.html
 	  
 注意顶层(top-level)的类和接口是不缩进的，而其成员是缩进的。描述类和接口的文档注释的第一行(/**)不需缩进；随后的文档注释每行都缩进1格(使星号纵向对齐)。成员，包括构造函数在内，其文档注释的第一行缩进4格，随后每行都缩进5格。
 
-若你想给出有关类、接口、变量或方法的信息，而这些信息又不适合写在文档中，则可使用实现块注释(见5.1.1)或紧跟在声明后面的单行注释(见5.1.2)。例如，有关一个类实现的细节，应放入紧跟在类声明后面的实现块注释中，而不是放在文档注释中。
+若你想给出有关类、接口、变量或方法的信息，而这些信息又不适合写在文档中，则可使用实现块注释或紧跟在声明后面的单行注释。例如，有关一个类实现的细节，应放入紧跟在类声明后面的实现块注释中，而不是放在文档注释中。
 
 文档注释不能放在一个方法或构造器的定义块中，因为Java会将位于文档注释之后的第一个声明与其相关联。
 
@@ -525,7 +506,7 @@ if-else语句应该具有如下格式：
 
 命名规范使程序更易读，从而更易于理解。它们也可以提供一些有关标识符功能的信息，以助于理解代码，例如，不论它是一个常量，包，还是类。
 
-	标识符类型									命名规则										例子
+	标识符类型								命名规则										例子
 	包(Packages)	一个唯一包名的前缀总是全部小写的ASCII字母并且是一个顶级域名，   com.sun.eng
 					通常是com，edu，gov，mil，net，org，或1981年ISO 3166标准所指	com.apple.quicktime.v2
 					定的标识国家的英文双字符代码。包名的后续部分根据不同机构各自	edu.cmu.cs.bovik.cheese
@@ -729,6 +710,9 @@ if-else语句应该具有如下格式：
 		}
 	}
 
+	
+
+[javadoc]:http://java.sun.com/javadoc/writingdoccomments/index.html "How to Write Doc Comments for Javadoc"
 
 [SV]: http://supervisord.org/ "Supervisor"
 [Nginx]: http://nginx.com/ "Nginx"
