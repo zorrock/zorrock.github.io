@@ -13,7 +13,28 @@ category: blog
 	conn / as sysdba
 	conn sys/123@orcl as sysdba
 	startup
+	startup pfile='XXXX/init.ora'
 	shutdown
+	
+	
+	
+##mysql的几条命令
+
+	mysql -h localhost -u username -p password;
+	mysqldump -h localhost -u username -p database > filepath;
+	create database basename;
+	use database;
+	show tables;
+	
+
+##linux的几条命令
+
+	ps -ef|grep "XX"
+	kill -9
+	netstat
+	chmod -R
+	
+	
 	
 
 
