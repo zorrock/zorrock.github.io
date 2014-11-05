@@ -221,6 +221,7 @@ import语句可分为以下几组，按照这个顺序，每组由一个空行�
 	private Color color;  // may leave it unaligned
 
 * Tip：对齐可增加代码可读性，但它为日后的维护带来问题。考虑未来某个时候，我们需要修改一堆对齐的代码中的一行。 这可能导致原本很漂亮的对齐代码变得错位。很可能它会提示你调整周围代码的空白来使这一堆代码重新水平对齐(比如程序员想保持这种水平对齐的风格)， 这就会让你做许多的无用功，增加了reviewer的工作并且可能导致更多的合并冲突。
+
 ###用小括号来限定组：推荐
 除非作者和reviewer都认为去掉小括号也不会使代码被误解，或是去掉小括号能让代码更易于阅读，否则我们不应该去掉小括号。 我们没有理由假设读者能记住整个Java运算符优先级表。
 
@@ -319,6 +320,7 @@ import语句可分为以下几组，按照这个顺序，每组由一个空行�
 注释不要封闭在由星号或其它字符绘制的框架里。
 
 * Tip：在写多行注释时，如果你希望在必要时能重新换行(即注释像段落风格一样)，那么使用/* ... */。
+
 ####Modifiers
 类和成员的modifiers如果存在，则按Java语言规范中推荐的顺序出现。
 
@@ -413,11 +415,11 @@ public protected private abstract static final transient volatile synchronized n
 	"new customer ID"         newCustomerId         newCustomerID
 	"inner stopwatch"         innerStopwatch        innerStopWatch
 	"supports IPv6 on iOS?"   supportsIpv6OnIos     supportsIPv6OnIOS
-	"YouTube importer"        YouTubeImporter
-							YoutubeImporter*
+	"YouTube importer"        YouTubeImporter       YoutubeImporter*
 	加星号处表示可以，但不推荐。
 
 * Note：在英语中，某些带有连字符的单词形式不唯一。例如："nonempty"和"non-empty"都是正确的，因此方法名checkNonempty和checkNonEmpty也都是正确的。
+
 ##编程实践
 
 ###@Override：能用则用
@@ -456,6 +458,7 @@ public protected private abstract static final transient volatile synchronized n
 极少会去重载Object.finalize。
 
 * Tip：不要使用finalize。如果你非要使用它，请先仔细阅读和理解Effective Java 第7条款：“Avoid Finalizers”，然后不要使用它。
+
 ##Javadoc
 
 ###格式
@@ -475,7 +478,7 @@ Javadoc块的基本格式如下所示：
 基本格式总是OK的。当整个Javadoc块能容纳于一行时(且没有Javadoc标记@XXX)，可以使用单行形式。
 
 ####段落
-空行(即，只包含最左侧星号的行)会出现在段落之间和Javadoc标记(@XXX)之前(如果有的话)。 除了第一个段落，每个段落第一个单词前都有标签<p>，并且它和第一个单词间没有空格。
+空行(即，只包含最左侧星号的行)会出现在段落之间和Javadoc标记(@XXX)之前(如果有的话)。除了第一个段落，每个段落第一个单词前都有标签“<p>”，并且它和第一个单词间没有空格。
 
 ####Javadoc标记
 标准的Javadoc标记按以下顺序出现：@param, @return, @throws, @deprecated, 前面这4种标记如果出现，描述都不能为空。 当描述无法在一行中容纳，连续行需要至少再缩进4个空格。
@@ -485,7 +488,8 @@ Javadoc块的基本格式如下所示：
 
 这只是一个小片段，可以是一个名词短语或动词短语，但不是一个完整的句子。它不会以A {@code Foo} is a...或This method returns...开头, 它也不会是一个完整的祈使句，如Save the record...。然而，由于开头大写及被加了标点，它看起来就像是个完整的句子。
 
-* Tip：一个常见的错误是把简单的Javadoc写成/** @return the customer ID */，这是不正确的。它应该写成/** Returns the customer ID. */。
+	Tip：一个常见的错误是把简单的Javadoc写成“/** @return the customer ID */”，这是不正确的。它应该写成“/** Returns the customer ID. */”。
+
 ###哪里需要使用Javadoc
 至少在每个public类及它的每个public和protected成员处使用Javadoc，以下是一些例外：
 
@@ -495,6 +499,7 @@ Javadoc块的基本格式如下所示：
 单元测试类中的测试方法可能是不言自明的最常见例子了，我们通常可以从这些方法的描述性命名中知道它是干什么的，因此不需要额外的文档说明。
 
 * Tip：如果有一些相关信息是需要读者了解的，那么以上的例外不应作为忽视这些信息的理由。例如，对于方法名getCanonicalName， 就不应该忽视文档说明，因为读者很可能不知道词语canonical name指的是什么。
+
 ####例外：重载
 如果一个方法重载了超类中的方法，那么Javadoc并非必需的。
 
