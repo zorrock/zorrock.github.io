@@ -303,7 +303,61 @@ category: blog
 		
 
 ###向已有的线程安全类添加功能
+添加一个新原子操作的最安全方法是修改原始的类，以支持期望的操作，但通常因为无法访问源代码而无法实现。直接向类中添加新方法，意味着所有实现类同步策略的代码仍然包含在一个源代码文件中。
+另一种方法是扩展类，扩展后同步策略的实现会被分布到多分独立维护的源代码文件中，因此扩展比直接在类中加入代码更脆弱。
+
+	//扩展的Vector包含一个“缺少即加入”方法
+	@TheadSafe
+	public class BetterVector<E> extends Vector<E> {	
+		public synchronized boolean putIfAbsent(E x) {
+			boolean absent = !contains(x);
+			if(absent)
+				add(x);
+			return absent;
+		}
+	}
+	
+####客户端加锁
+
+	//实现的"缺少即加入"
+	@ThreadSafe
+	public class ListHelper<E> {
+		Collections.synchronizedList(new ArrayList<E>());
+		
+		public boolean putIfAbsent(E x) {
+			synchronized(list) {
+				boolean absent = !list.contains(x);
+				if(absent)
+					list.add(x);
+				return absent;
+			}
+		}
+	}
+	
+####组合
+
+	@ThreadSafe
+	public class ImprovedList<T> implements List<T> {
+		private final List<T> list;
+		
+		public ImprovedList(<List<T> list) { this.list = list; }
+		
+		public synchronized boolean putIfAbsent(T x) {
+			boolean contains = list.contains(x);
+			if(contains) 
+				list.add(x);
+			return !contains;
+		}
+		
+		public synchronized void clear() { list.clear(); )
+		
+		//... similarly delegate other List methods
+	}
+
+	
+	
 ###同步策略的文档化
+为类的用户编写类线程安全性担保的文档，为类的维护者编写类的同步策略文档。
 
 ##构建块
 ###同步容器
