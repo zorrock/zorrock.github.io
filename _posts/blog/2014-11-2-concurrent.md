@@ -374,8 +374,4 @@ category: blog
 ###Synchronizer
 ###为计算结果建立高效、可伸缩的高速缓存
 
-
-
-[SV]: http://supervisord.org/ "Supervisor"
 [Nginx]: http://nginx.com/ "Nginx"
-[NovelAssistant]: http://xuanpai.sinaapp.com/ "novel"
