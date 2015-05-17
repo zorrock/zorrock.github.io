@@ -24,4 +24,4 @@ category: project
 [facetracker][facetracker]
 
 [facetracker]: https://github.com/kylemcdonald/ofxFaceTracker/ "facetracker"
-[myvideo]: https://http://video.weibo.com/show?fid=1034:a5a6ac8657efe015eb68a360084d1403 "myvideo"
+[myvideo]: http://video.weibo.com/show?fid=1034:a5a6ac8657efe015eb68a360084d1403 "myvideo"
