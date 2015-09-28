@@ -14,8 +14,6 @@ description: just for fun
 <div class="inner">
 <img src="/images/forfun/nibuxin.gif" alt="Nature">
 <img src="/images/forfun/niyoudaoli.gif" alt="Nature">
-<img src="/images/forfun/heshang.gif" alt="Nature">
-<img src="/images/forfun/fengyun.png" alt="Nature">
 </div>
 </div>
 
