@@ -5,7 +5,7 @@ pygments: true
 paginate: 8
 permalink: /:title
 
-title: zorrock.com
+title: zorrock
 url: http://zorrock.github.io
 feed: /atom.xml
 author_info: <a href="http://zorrock.github.io/">BeiYuu</a>
