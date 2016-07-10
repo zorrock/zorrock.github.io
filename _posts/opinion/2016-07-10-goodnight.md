@@ -48,7 +48,7 @@ description: goodnight
 
 <div id="transform1">
 <div class="inner">
-<img src="/images/goodnight/zhouxingchi.png" alt="Nature">
+<img src="/images/goodnight/zhouxingchi.jpg" alt="Nature">
 </div>
 </div>
   
