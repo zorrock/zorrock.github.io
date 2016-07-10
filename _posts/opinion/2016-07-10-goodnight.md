@@ -1,0 +1,236 @@
+---
+layout: post
+title: 晚安
+category: opinion
+description: goodnight
+---
+
+  
+  圈圈叉叉是指下面这个游戏，规则十分简单，就是圈圈或叉叉先连成线(横、纵、斜)就赢，至于圈圈叉叉四不四还有其它含义，我实不知情。
+  
+	XOO          X.O           OOX               012
+	XXX   X win  .XO   X win   .O.  O win        345
+	.OO          O.X           XOX               678
+  
+  
+####赢 
+  
+  首先看看在玩这个游戏时我们是怎么思考的，假如你执先走叉叉，为了赢会怎样思考。
+  
+  你会发现有9种走法，然后试图评判每种走法获胜的可能，或者说是收益。怎么评判？
+  当然是对每种走法进行逻辑推演，假设对方怎么走然后我再怎么走，然后走来走去直至有一方获胜或者平局。如果推演几次后发现你赢得多输得少，那么就可以认为这种走法是一种比较可行的走法。接着就按这种走法落子咯，对方应对后你再重复之前的过程。
+ 
+####算
+ 
+  上面的一段介绍可能有点啰嗦，但只有这样才能把你的思路翻译给计算机听，让计算机发挥其计算优势帮你分析。上面的整个过程整理一下: 
+  
+* 1) 随机选择一个走法，如0位置;
+* 2) 往下推演，假设你下了0位，对方和你交替行棋至最终分出胜负;
+* 3) 将2)进行很多次，记录为n次，统计赢的次数w;
+* 4)   对0位置走法进行收益评估，明显收益和w呈正比和v呈反比，可以直接表示为w/v，不过，这样会漏算，就是当w和v已经固定，在其它位置比如1,2..8位置所做的尝试越多，你的收益应该是更大的。所以再把前面的收益值改造下，把所有尝试推演的次数记录为V,得到收益为w/v + UCTK * sqrt(2*log(V)/v);
+* 5) 0位置的收益值有了，那就把剩下位置的收益值都算出来，排个序，选出收益值最大的走法下手;
+* 6) 继续整个过程，直到世界的尽头。
+
+  整个过程多么滴像一颗树(要是不像就没法继续往下扯了)。这颗树的根是我们的初始状态，每种走法就是一个树的枝桠，树上一个个节就是走到这一步的收益，不断推演，这棵树不断开枝散叶，终于到达胜负叶。每一步你只需要沿着节点最肥硕的枝桠走下去，就能大概率的获取胜利。这就是蒙特卡洛搜索树了。
+  
+####限
+  为什么要选择圈圈叉叉这个游戏，使得标题看起来很猥琐的样子，难道是因为高级点的游戏比如围棋不会玩？是的，但还有另一个原因是计算数量级。对整个3X3棋盘出现的变化在9!即10的5次方数量级，直接穷举都行。然而围棋能出现的变化是惊人的。
+  
+  “围棋棋盘的规模（19x19）意味着棋手落子的方式极多——粗略估算数量约为10的170次方。已经找不到类比来描述如此大的体量。它大概要比已观测到宇宙中原子的数量多100个数量级，后者仅为10的80次方左右。”
+  
+  肯定不能楞算，穷尽每种可能的话蒙特卡洛搜索树会直接爆掉，必须对一些枝桠进行限制和裁剪，比如因为棋盘是对称的，不需要真的算出9种落子方法的收益，只需要算出三种就行。还有至倒数几步时胜负已分，不需要算到叶子节点。这种修剪的方法是需要技巧和一定的领域知识的，像围棋这种有着恐怖数量级的可能性该用什么方法进行裁剪，我这种围棋盲实在没什么好说的(但是可以跳过理解直接模拟，这就是深度学习干的事情了)。
+
+####再
+  那么现实世界中，这种方法会有什么用武之地呢，比如在股票市场上进行投资决策，别说，根据我的观察，这种方法看似简单，如果没有数据和规则，的确是丁点用处都没有。圈圈叉叉的游戏之所以可以用蒙特卡洛搜索树来模拟，是因为:  
+  
+* 理性人，双方走子都在逻辑范畴下，不会忽然抽风;
+* 规则透明，成线即赢;
+* 信息对等；我知道你下在哪里了;
+* 收益可评估，赢的概率可被量化。
+
+  对应的我们看下股市:
+  
+* 一个个聪明人组成的过于亢奋的投机团体;
+* 规则模糊善变，规则的外延是法，法的特点是一固显，要求是统一、稳定、大家都直道，很明显现实不是这样;
+* 食物链的顶端和末端的信息量完全不是一个量级。
+
+  所以现阶段用这种方法给自己益个智还行，要实际应用则困难重重，更别提智能了。我们的智能不仅在于反应速度，知识容量，更在于能举一反三，见微知著及知识的碰撞所产生的无限创意。现在为止人的思维还是无法被推理演绎，只能根据结果进行模拟。
+  
+####最后
+
+  比起这个复杂纷乱的真实世界，0和1黑与白的宇宙简洁明快得多，最后还是用代码来无情演示([源地址][1]):
+  
+	from math import *
+	import random
+	
+	
+	class OXOState:
+		""" 圈圈叉叉游戏状态，每个位置由0到8编号，包括三种状态，空位、被圈圈占据，被叉叉占据:
+			012
+			345
+			678
+			where 0 = empty, 1 = player 1 (X), 2 = player 2 (O)
+		"""
+		def __init__(self):
+			self.playerJustMoved = 2 # 将上一步走子的人设置为2，表示开始应该是1先走
+			self.board = [0,0,0,0,0,0,0,0,0] # 0 = empty, 1 = player 1, 2 = player 2
+			
+		def Clone(self):
+			st = OXOState()
+			st.playerJustMoved = self.playerJustMoved
+			st.board = self.board[:]
+			return st
+	
+		def DoMove(self, move):
+			""" 走子来更新状态，走子的人在1和2之间来回切换.
+			"""
+			assert move >= 0 and move <= 8 and move == int(move) and self.board[move] == 0
+			self.playerJustMoved = 3 - self.playerJustMoved
+			self.board[move] = self.playerJustMoved
+			
+		def GetMoves(self):
+			""" Get all possible moves from this state.
+			"""
+			return [i for i in range(9) if self.board[i] == 0]
+		
+		def GetResult(self, playerjm):
+			""" 赢了就得1分，输了得0分，平局0.5分. 
+			"""
+			for (x,y,z) in [(0,1,2),(3,4,5),(6,7,8),(0,3,6),(1,4,7),(2,5,8),(0,4,8),(2,4,6)]:
+				if self.board[x] == self.board[y] == self.board[z]:
+					if self.board[x] == playerjm:
+						return 1.0
+					else:
+						return 0.0
+			if self.GetMoves() == []: return 0.5 # draw
+	
+	
+		def __repr__(self):
+			s= ""
+			for i in range(9): 
+				s += ".XO"[self.board[i]]
+				if i % 3 == 2: s += "\n"
+			return s
+	
+	
+	
+	class Node:
+		""" A node in the game tree. Note wins is always from the viewpoint of playerJustMoved.
+			Crashes if state not specified.
+		"""
+		def __init__(self, move = None, parent = None, state = None):
+			self.move = move # the move that got us to this node - "None" for the root node
+			self.parentNode = parent # "None" for the root node
+			self.childNodes = []
+			self.wins = 0
+			self.visits = 0
+			self.untriedMoves = state.GetMoves() # future child nodes
+			self.playerJustMoved = state.playerJustMoved # the only part of the state that the Node needs later
+			
+		def UCTSelectChild(self):
+			""" 用UCB1公式计算每个子决策节点的收益值得分，然后选择收益最大的子节点
+				lambda c: c.wins/c.visits + UCTK * sqrt(2*log(self.visits)/c.visits 
+			"""
+			s = sorted(self.childNodes, key = lambda c: c.wins/c.visits + sqrt(2*log(self.visits)/c.visits))[-1]
+			return s
+		
+		def AddChild(self, m, s):
+			""" 一般是在扩展，对于当前局势的进一步演进，当推演了当前所以的可能后，就可以进行收益评估和排比了
+			"""
+			n = Node(move = m, parent = self, state = s)
+			self.untriedMoves.remove(m)
+			self.childNodes.append(n)
+			return n
+		
+		def Update(self, result):
+			"""每次推演到最后，根据输赢的结果来更新节点状态
+			"""
+			self.visits += 1
+			self.wins += result
+	
+		def __repr__(self):
+			return "[M:" + str(self.move) + " W/V:" + str(self.wins) + "/" + str(self.visits) + " U:" + str(self.untriedMoves) + "]"
+	
+		def TreeToString(self, indent):
+			s = self.IndentString(indent) + str(self)
+			for c in self.childNodes:
+				s += c.TreeToString(indent+1)
+			return s
+	
+		def IndentString(self,indent):
+			s = "\n"
+			for i in range (1,indent+1):
+				s += "| "
+			return s
+	
+		def ChildrenToString(self):
+			s = ""
+			for c in self.childNodes:
+				s += str(c) + "\n"
+			return s
+	
+	
+	def UCT(rootstate, itermax, verbose = False):
+		""" 从初始状态进行itermax次迭代搜索，找到赢面最大的一步走法.
+		"""
+	
+		rootnode = Node(state = rootstate)
+	
+		for i in range(itermax):
+			node = rootnode
+			state = rootstate.Clone()
+	
+			# 选择得分最高的方案
+			while node.untriedMoves == [] and node.childNodes != []: 
+				node = node.UCTSelectChild()
+				state.DoMove(node.move)
+	
+			# 扩展出一个决策
+			if node.untriedMoves != []: 
+				m = random.choice(node.untriedMoves) 
+				state.DoMove(m)
+				node = node.AddChild(m,state) 
+	
+			# 沿着这个决策推演 
+			while state.GetMoves() != []: # while state is non-terminal
+				state.DoMove(random.choice(state.GetMoves()))
+	
+			# 反馈，用收益来评定整个决策路径上的点
+			while node != None: # backpropagate from the expanded node and work back to the root node
+				node.Update(state.GetResult(node.playerJustMoved)) # state is terminal. Update node with result from POV of node.playerJustMoved
+				node = node.parentNode
+	
+		if (verbose): print rootnode.TreeToString(0)
+		else: print rootnode.ChildrenToString()
+	
+		return sorted(rootnode.childNodes, key = lambda c: c.visits)[-1].move # return the move that was most visited
+					
+	def UCTPlayGame():
+		""" 两个UCT玩家作一场，iterations表示可以进行推演的总次数，
+		"""
+		state = OXOState() 
+		while (state.GetMoves() != []):
+			print str(state)
+			if state.playerJustMoved == 1:
+				m = UCT(rootstate = state, itermax = 1000, verbose = True)
+			else:
+				m = UCT(rootstate = state, itermax = 100, verbose = True)
+			print "Best Move: " + str(m) + "\n"
+			state.DoMove(m)
+		if state.GetResult(state.playerJustMoved) == 1.0:
+			print "Player " + str(state.playerJustMoved) + " wins!"
+		elif state.GetResult(state.playerJustMoved) == 0.0:
+			print "Player " + str(3 - state.playerJustMoved) + " wins!"
+		else: print "Nobody wins!"
+	
+	if __name__ == "__main__":
+		UCTPlayGame()
+
+		
+- [MCTS](http://mcts.ai/about/index.html)
+- [蒙特卡洛树搜索 MCTS](http://www.jianshu.com/p/d011baff6b64)
+- [AlphaGo的算法等技术分析](http://mp.weixin.qq.com/s?__biz=MzI2NjA3NTc4Ng==&mid=402878207&idx=1&sn=a1e85787363d827cd4f922f3ea5579b7&scene=2&srcid=0310JY79IaIsL7h9PV4bdJpB&from=timeline&isappinstalled=0)
+- [一张图解AlphaGo原理及弱点](http://mp.weixin.qq.com/s?__biz=MzIxNjE3MTM5OA==&mid=402241411&idx=1&sn=98557fdc359a17af9ab6b1ed7e09854a&scene=2&srcid=0314rM6ivyxIaEMfKIaW167Z&from=timeline&isappinstalled=0#wechat_redirect)
+- [AlphaGo短路在哪](http://mp.weixin.qq.com/s?__biz=MzAwMjM2Njg2Nw==&mid=405201527&idx=1&sn=b9a5719316ea4d1ea37626fc74df3279&scene=2&srcid=0313cUMHq9tleftbnnd2rze0&from=timeline&isappinstalled=0#wechat_redirect&location=35)
+
+[1]:    http://mcts.ai/about/index.html  (MCTS)
