@@ -53,6 +53,10 @@ w君想到可以去医院开个证明证明自己神经衰弱，精神焦虑之�
 而能固化和产生深远影响的，必是成系统，有因果性或相关性关联的各种观念，这方面的东西只能是反复思考深思熟虑然后妙手偶得，别无他法。
 
 
-
+<div id="transform1">
+<div class="inner">
+<img src="/images/other/a.jpg" alt="Nature">
+</div>
+</div>
 
 
